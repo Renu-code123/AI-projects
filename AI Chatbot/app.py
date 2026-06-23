@@ -25,5 +25,24 @@ pairs = [
 ]
 
 ##5. Defining the Chatbot Class
+class RuleBasedChatbot:
+    def __init__(self, pairs):
+        self.chat = Chat(pairs, reflections)
+
+    def respond(self, user_input):
+        return self.chat.respond(user_input)
+
+##6. Interacting with the Chatbot
+def chat_with_bot():
+    print("Hello, I am your chatbot! Type 'exit' to end the conversation.")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == 'exit':
+            print("Chatbot: Goodbye! Have a nice day!")
+            break
+        response = chatbot.respond(user_input)
+        print(f"Chatbot: {response}")
+
+
 
 
