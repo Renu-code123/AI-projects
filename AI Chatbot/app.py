@@ -47,8 +47,6 @@ def chat_with_bot():
 chatbot = RuleBasedChatbot(pairs)
 chat_with_bot()
 
-#
-
 
 
 
