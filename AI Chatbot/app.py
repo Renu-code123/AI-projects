@@ -43,6 +43,12 @@ def chat_with_bot():
         response = chatbot.respond(user_input)
         print(f"Chatbot: {response}")
 
+#7. Initializing the Chatbot
+chatbot = RuleBasedChatbot(pairs)
+chat_with_bot()
+
+#
+
 
 
 
