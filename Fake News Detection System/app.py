@@ -11,3 +11,6 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 data = pd.read_csv("news.csv")
 data.head()
 
+#3. Preprocessing Dataset
+data = data.drop(["Unnamed: 0"], axis=1)
+data.head(5)
