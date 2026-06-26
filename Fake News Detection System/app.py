@@ -45,4 +45,9 @@ vocab_size1 = len(word_index1)
 sequences1 = tokenizer1.texts_to_sequences(title)
 padded1 = pad_sequences(sequences1, padding=padding_type, truncating=trunc_type)
 
-#
+#7. Splitting Data for Training and Testing
+split = int(test_portion * training_size)
+training_sequences1 = padded1[split:training_size]
+test_sequences1 = padded1[0:split]
+test_labels = labels[0:split]
+training_labels = labels[split:training_size]
