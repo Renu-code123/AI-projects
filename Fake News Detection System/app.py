@@ -21,3 +21,12 @@ le.fit(data['label'])
 data['label'] = le.transform(data['label'])
 
 #5. Variables Setup
+embedding_dim = 50
+max_length = 54
+padding_type = 'post'
+trunc_type = 'post'
+oov_tok = "<OOV>"
+training_size = 3000
+test_portion = 0.1
+
+#
