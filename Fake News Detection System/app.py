@@ -29,4 +29,20 @@ oov_tok = "<OOV>"
 training_size = 3000
 test_portion = 0.1
 
+#6. Tokenization 
+title = []
+text = []
+labels = []
+for x in range(training_size):
+    title.append(data['title'][x])
+    text.append(data['text'][x])
+    labels.append(data['label'][x])
+
+tokenizer1 = Tokenizer()
+tokenizer1.fit_on_texts(title)
+word_index1 = tokenizer1.word_index
+vocab_size1 = len(word_index1)
+sequences1 = tokenizer1.texts_to_sequences(title)
+padded1 = pad_sequences(sequences1, padding=padding_type, truncating=trunc_type)
+
 #
