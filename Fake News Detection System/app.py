@@ -14,3 +14,10 @@ data.head()
 #3. Preprocessing Dataset
 data = data.drop(["Unnamed: 0"], axis=1)
 data.head(5)
+
+#4. Data Encoding
+le = preprocessing.LabelEncoder()
+le.fit(data['label'])
+data['label'] = le.transform(data['label'])
+
+#5. Variables Setup
