@@ -56,3 +56,5 @@ training_sequences1 = np.array(training_sequences1)
 test_sequences1 = np.array(test_sequences1)
 
 #9. Generating Word Embedding
+!wget https://downloads.cs.stanford.edu/nlp/data/glove.6B.zip
+!unzip glove.6B.zip
