@@ -51,3 +51,8 @@ training_sequences1 = padded1[split:training_size]
 test_sequences1 = padded1[0:split]
 test_labels = labels[0:split]
 training_labels = labels[split:training_size]
+#8. Reshaping Data for LSTM
+training_sequences1 = np.array(training_sequences1)
+test_sequences1 = np.array(test_sequences1)
+
+#9. Generating Word Embedding
