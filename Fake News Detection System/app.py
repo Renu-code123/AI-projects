@@ -82,6 +82,14 @@ history = model.fit(
     verbose=2
 )
 
-##
+##12. Sample Prediction
 
+X = "Karry to go to France in gesture of sympathy"
+
+sequences = tokenizer1.texts_to_sequences([X])
+sequences = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+if model.predict(sequences, verbose=0)[0][0] >= 0.5:
+    print("This news is True")
+else:
+    print("This news is False")
 
