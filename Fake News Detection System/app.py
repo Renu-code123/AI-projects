@@ -72,3 +72,16 @@ model = tf.keras.Sequential([
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.summary()
+
+##11. Training the Model
+history = model.fit(
+    training_sequences1, 
+    np.array(training_labels), 
+    epochs=50, 
+    validation_data=(test_sequences1, np.array(test_labels)), 
+    verbose=2
+)
+
+##
+
+
