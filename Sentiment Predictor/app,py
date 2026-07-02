@@ -22,3 +22,11 @@ data['sentiment'] = data['Avg Rating'].apply(lambda x: 1 if x > 3.5 else 0)
 data = data.dropna()
 
 ##4. Tokenization and Padding
+max_features = 5000
+max_length = 200
+
+tokenizer = Tokenizer(num_words=max_features)
+tokenizer.fit_on_texts(data["Review"])
+X = pad_sequences(tokenizer.texts_to_sequences(
+    data["Review"]), maxlen=max_length)
+y = data['sentiment'].values
