@@ -64,4 +64,18 @@ history = model.fit(
 score = model.evaluate(X_test, y_test, verbose=0)
 print(f"Test accuracy: {score[1]:.2f}")
 
-##
+##8. Predicting Sentiment
+def predict_sentiment(review_text):
+    text = review_text.lower()
+    text = re.sub(r'[^a-z0-9\s]', '', text)
+
+    seq = tokenizer.texts_to_sequences([text])
+    padded = pad_sequences(seq, maxlen=max_length)
+
+    prediction = model.predict(padded)[0][0]
+    return f"{'Positive' if prediction >= 0.5 else 'Negative'} (Probability: {prediction:.2f})"
+
+
+sample_review = "The food was great."
+print(f"Review: {sample_review}")
+print(f"Sentiment: {predict_sentiment(sample_review)}")
