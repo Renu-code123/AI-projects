@@ -22,6 +22,25 @@ zip_file_name = 'flowers-20250320T105846Z-001.zip'
 base_dir = 'flowers/'
 os.makedirs(base_dir, exist_ok=True)
 
+##3. Image Data Generator
+train_datagen = ImageDataGenerator(rescale=1. / 255, shear_range=0.2, 
+                                   zoom_range=0.2, horizontal_flip=True,
+                                   validation_split=0.2)
+
+test_datagen = ImageDataGenerator(rescale=1. / 255,
+                                  validation_split=0.2)
+
+train_datagen = train_datagen.flow_from_directory(base_dir,
+                                                  target_size=(
+                                                      img_size, img_size),
+                                                  subset='training',
+                                                  batch_size=batch)
+test_datagen = test_datagen.flow_from_directory(base_dir,
+                                                target_size=(
+                                                    img_size, img_size),
+                                                subset='validation',
+                                                batch_size=batch)
+
 with zipfile.ZipFile(zip_file_name, 'r') as zip_ref:
     zip_ref.extractall(base_dir)
 
