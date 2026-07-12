@@ -46,3 +46,31 @@ with zipfile.ZipFile(zip_file_name, 'r') as zip_ref:
 
 img_size = 224
 batch = 64
+
+#4. Model Development 
+model = Sequential()
+model.add(Conv2D(filters=64, kernel_size=(5, 5), padding='same',
+                 activation='relu', input_shape=(224, 224, 3)))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+
+model.add(Conv2D(filters=64, kernel_size=(3, 3),
+                 padding='same', activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
+
+
+model.add(Conv2D(filters=64, kernel_size=(3, 3),
+                 padding='same', activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
+
+model.add(Conv2D(filters=64, kernel_size=(3, 3),
+                 padding='same', activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
+
+model.add(Flatten())
+model.add(Dense(512))
+model.add(Activation('relu'))
+model.add(Dense(5, activation="softmax"))
+
+model.summary()
+
