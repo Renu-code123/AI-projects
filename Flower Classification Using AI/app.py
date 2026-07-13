@@ -74,3 +74,10 @@ model.add(Dense(5, activation="softmax"))
 
 model.summary()
 
+##5. Visualizing the Model Architecture
+keras.utils.plot_model(
+    model,
+    show_shapes = True,
+    show_dtype = True,
+    show_layer_activations = True
+)
