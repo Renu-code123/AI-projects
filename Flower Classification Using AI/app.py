@@ -81,3 +81,8 @@ keras.utils.plot_model(
     show_dtype = True,
     show_layer_activations = True
 )
+##6. Compiling and Training the Model
+model.compile(optimizer=tf.keras.optimizers.Adam(),
+              loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+##
