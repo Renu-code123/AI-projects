@@ -85,4 +85,6 @@ keras.utils.plot_model(
 model.compile(optimizer=tf.keras.optimizers.Adam(),
               loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
-##
+##7. Training the Model
+epochs=30
+model.fit(train_datagen,epochs=epochs,validation_data=test_datagen)
