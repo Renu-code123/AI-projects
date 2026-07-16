@@ -91,4 +91,21 @@ model.fit(train_datagen,epochs=epochs,validation_data=test_datagen)
 
 ##8. Saving and Loading the Model
 model.save('Model.h5')
-savedModel=load_model('Model.h5')
+savedModel=load_model('Model.h5') 
+##9. Model Evaluation and Prediction
+list_ = ['Daisy','Danelion','Rose','sunflower', 'tulip']
+
+test_image = image.load_img('img.jpg',target_size=(224,224))
+
+plt.imshow(test_image)
+test_image = image.img_to_array(test_image)
+test_image = np.expand_dims(test_image,axis=0)
+
+result = savedModel.predict(test_image)
+print(result)
+
+i=0
+for i in range(len(result[0])):
+  if(result[0][i]==1):
+    print(list_[i])
+    break
