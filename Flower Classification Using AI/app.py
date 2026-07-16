@@ -88,3 +88,7 @@ model.compile(optimizer=tf.keras.optimizers.Adam(),
 ##7. Training the Model
 epochs=30
 model.fit(train_datagen,epochs=epochs,validation_data=test_datagen)
+
+##8. Saving and Loading the Model
+model.save('Model.h5')
+savedModel=load_model('Model.h5')
