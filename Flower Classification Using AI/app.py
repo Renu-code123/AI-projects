@@ -95,7 +95,8 @@ savedModel=load_model('Model.h5')
 ##9. Model Evaluation and Prediction
 list_ = ['Daisy','Danelion','Rose','sunflower', 'tulip']
 
-test_image = image.load_img('img.jpg',target_size=(224,224))
+
+test_image = image.load_img('img2.jpg',target_size=(224,224))
 
 plt.imshow(test_image)
 test_image = image.img_to_array(test_image)
